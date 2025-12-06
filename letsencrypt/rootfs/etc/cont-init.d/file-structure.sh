@@ -103,9 +103,15 @@ chmod 600 /data/dnsapikey
 
 ## Prepare TransIP RSA key
 if bashio::config.exists 'dns.transip_api_key'; then
-      TRANSIP_API_KEY=$(bashio::config 'dns.transip_api_key')
-      echo "${TRANSIP_API_KEY}" | openssl rsa -out /data/transip-rsa.key
-      chmod 600 /data/transip-rsa.key
+      TEMP_KEY_FILE="/data/transip.key.tmp"
+      FINAL_RSA_KEY="/data/transip-rsa.key"
+
+      echo "${TRANSIP_API_KEY}" > "${TEMP_KEY_FILE}"
+
+      openssl rsa -in "${TEMP_KEY_FILE}" -out "${FINAL_RSA_KEY}"
+
+      chmod 600 "${FINAL_RSA_KEY}"
+      rm -f "${TEMP_KEY_FILE}"
 fi
 
 # TransIP global_key conditional write out to config 
