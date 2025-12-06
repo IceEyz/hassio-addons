@@ -1,5 +1,5 @@
 ---
-version: 5.4.10
+version: 5.4.11
 breaking_versions: [5.3.0]
 slug: letsencrypt
 name: Let's Encrypt
@@ -12,7 +12,6 @@ arch:
   - amd64
   - i386
 boot: manual
-image: homeassistant/{arch}-addon-letsencrypt
 init: false
 map:
   - ssl:rw
