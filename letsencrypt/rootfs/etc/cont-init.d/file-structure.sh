@@ -106,7 +106,7 @@ if bashio::config.exists 'dns.transip_api_key'; then
       TEMP_KEY_FILE="/data/transip.key.tmp"
       FINAL_RSA_KEY="/data/transip-rsa.key"
 
-      echo -e "$(bashio::config 'dns.transip_api_key')\n" >> "${TEMP_KEY_FILE}"
+      echo -e "$(bashio::config 'dns.transip_api_key')\n" > "${TEMP_KEY_FILE}"
 
       openssl rsa -in "${TEMP_KEY_FILE}" -out "${FINAL_RSA_KEY}"
 
