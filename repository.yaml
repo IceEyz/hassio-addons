@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: IceEyz Forked Community Addons
+url: 'https://https://github.com/IceEyz/hassio-addons/'
+maintainer: IceEyz
